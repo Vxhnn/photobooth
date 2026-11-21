@@ -116,3 +116,20 @@
 .auth-switch a:hover {
   opacity: 0.75;
 }
+
+/* Safety note under form fields */
+.form-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 2px;
+  padding: 10px 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--shadow-color);
+  background-color: #FFF8D6;
+  border: 2.5px solid var(--shadow-color);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0px var(--shadow-color);
+}
