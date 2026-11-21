@@ -1,0 +1,88 @@
+/* About Page Specific Styles */
+.about-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.about-section {
+  max-width: 960px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.about-section h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--shadow-color);
+}
+
+.about-intro {
+  max-width: 700px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--shadow-color);
+}
+
+.about-cards {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.about-cards li {
+  flex: 1;
+  display: flex;
+}
+
+.about-card {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 3px solid var(--shadow-color);
+  border-radius: 18px;
+  padding: 24px 20px;
+  box-shadow: 5px 5px 0px var(--shadow-color);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.step-badge {
+  display: inline-block;
+  width: fit-content;
+  background-color: var(--accent-color);
+  color: var(--shadow-color);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 4px 12px;
+  border: 2px solid var(--shadow-color);
+  border-radius: 8px;
+}
+
+.about-card h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--shadow-color);
+}
+
+.about-card p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--shadow-color);
+}

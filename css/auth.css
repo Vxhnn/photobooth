@@ -1,0 +1,118 @@
+/* Auth Pages (Login & Register) Specific Styles */
+.auth-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: #FFFFFF;
+  border: 3px solid var(--shadow-color);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 6px 6px 0px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-card h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--shadow-color);
+  text-align: center;
+}
+
+.auth-subtitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--shadow-color);
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Visually hidden legend para semantic pa rin pero malinis tingnan */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--shadow-color);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--shadow-color);
+  background-color: var(--bg-color);
+  border: 2.5px solid var(--shadow-color);
+  border-radius: 12px;
+  outline: none;
+  transition: box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.form-group input:focus {
+  background-color: #FFFFFF;
+  box-shadow: 3px 3px 0px var(--accent-color);
+}
+
+.auth-submit {
+  width: 100%;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--shadow-color);
+  margin-top: 6px;
+}
+
+.auth-switch a {
+  font-weight: 700;
+  color: var(--shadow-color);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--accent-color);
+}
+
+.auth-switch a:hover {
+  opacity: 0.75;
+}

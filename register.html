@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>">
+  <title>Register - Photo Booth</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" class="logo">Photo Booth</a>
+    <nav class="header-nav" aria-label="Primary Navigation">
+      <ul class="header-nav-ul">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html" aria-current="page">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="auth-main">
+    <section class="auth-card" aria-labelledby="register-heading">
+      <h1 id="register-heading">Create Account</h1>
+      <p class="auth-subtitle">Sign up to save your photo strips to your personal cloud gallery.</p>
+
+      <form class="auth-form" id="register-form">
+        <fieldset class="auth-fieldset">
+          <legend class="sr-only">Registration Details</legend>
+
+          <p class="form-group">
+            <label for="register-name">Display Name</label>
+            <input type="text" id="register-name" name="name" placeholder="Juan Dela Cruz" required>
+          </p>
+
+          <p class="form-group">
+            <label for="register-email">Email Address</label>
+            <input type="email" id="register-email" name="email" placeholder="you@example.com" required>
+          </p>
+
+          <p class="form-group">
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" name="password" placeholder="Create a password (min. 6 chars)" minlength="6" required>
+          </p>
+        </fieldset>
+
+        <button type="submit" class="cta-btn auth-submit">Create Account</button>
+      </form>
+
+      <p class="auth-switch">
+        Already have an account? <a href="login.html">Login here</a>
+      </p>
+    </section>
+  </main>
+
+  <script type="module" src="javascript/auth/auth.js"></script>
+</body>
+</html>

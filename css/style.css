@@ -1,0 +1,229 @@
+/* 1. Universal Reset (* dapat, hindi -) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --bg-color: #F4FBFD;
+  --accent-color: #00C4D6;
+  --shadow-color: #0F172A;
+}
+
+
+body {
+  background-color: var(--bg-color);
+  color: var(--shadow-color);
+  height: 100vh;          /* Sakto sa isang screen */
+  overflow: hidden;       /* Walang scroll bar sa gilid */
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* 2. Header Section */
+.header {
+  background-color: var(--accent-color);
+  border-bottom: 3px solid var(--shadow-color);
+  padding: 30px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 19px;
+}
+
+
+.logo {
+    
+    font-size: 33px;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-shadow: 2px 2px 0px var(--shadow-color);
+}
+
+
+.header-nav-ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+
+.header-nav-ul a {
+  text-decoration: none;
+  color: var(--shadow-color);
+  font-weight: 700;
+  transition: opacity 0.2s ease;
+}
+
+
+.header-nav-ul a:hover {
+  opacity: 0.7;
+}
+
+
+/* 3. Main Section (Pantay sa gitna ng screen) */
+.photobooth-main {
+  flex: 1;                /* Kukunin ang natitirang screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+
+.photobooth-section {
+  max-width: 900px;
+  width: 100%;
+  margin-bottom: 20px   ;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;              /* Pantay na espasyo sa bawat elemento */
+}
+
+
+.photobooth-section h1 {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--shadow-color);
+  margin-bottom: 30px;
+  
+}
+
+
+/* 4. Tamang Laki ng Picture Container (Hindi natatakpan ang button) */
+.photobooth-figure {
+  max-width: 90vw;
+  width: 640px;           /* Malapad */
+  height: 420px;          /* Sakto para kita pa ang button sa baba */
+  border: 3px solid var(--shadow-color);
+  border-radius: 120px 120px 120px 120px;
+  overflow: hidden;
+  
+  background-color: #FFFFFF;
+}
+
+
+.photobooth-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.photobooth-subtitle {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--shadow-color);
+  max-width: 780px;
+  line-height: 1.5;
+  margin-top: 30px;
+}
+
+
+/* 5. Start Photo Booth Button */
+.cta-btn {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--shadow-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 15px 38px;
+  border: 3px solid var(--shadow-color);
+  border-radius: 14px;
+  box-shadow: 5px 5px 0px var(--shadow-color);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.2s ease;
+}
+
+
+.cta-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px var(--shadow-color);
+  opacity: 0.9;
+}
+
+
+.cta-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0px var(--shadow-color);
+}
+
+
+/* Font Area */
+@font-face {
+    font-family: 'Quicksand';
+    src: url(/assets/font/Quicksand/static/Quicksand-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url(/assets/font/Quicksand/static/Quicksand-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url(/assets/font/Quicksand/static/Quicksand-SemiBold.ttf) format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url(/assets/font/Quicksand/static/Quicksand-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fredoka';
+    src: url(//assets/font/Fredoka/static/Fredoka_Condensed-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fredoka';
+    src: url(/assets/font/Fredoka/static/Fredoka_Condensed-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fredoka';
+    src: url(/assets/font/Fredoka/static/Fredoka_Condensed-SemiBold.ttf) format('trietype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fredoka';
+    src: url(/assets/font/Fredoka/static/Fredoka_Condensed-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body,
+.header-nav-ul a,
+.photobooth-subtitle,
+.cta-btn {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.logo,
+.photobooth-section h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}

@@ -1,0 +1,338 @@
+/* ==========================================================================
+   SNAPBOOTH RESPONSIVE OVERRIDES (MOBILE, IPAD & TABLET)
+   Matches exact classes in index.html, about.html, login.html, register.html & booth.html
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   1. IPAD & TABLET VIEW (<= 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .header {
+    padding: 1rem 1.5rem !important;
+  }
+
+  /* Home Page */
+  .photobooth-main {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .photobooth-figure {
+    width: 100% !important;
+    max-width: 560px !important;
+    margin: 1.5rem auto !important;
+  }
+
+  /* About Page */
+  .about-main {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .about-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Booth Studio Page: Stack Studio & Right Strip Panel */
+  .booth-main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 1.5rem !important;
+    gap: 2rem !important;
+  }
+
+  .booth-studio,
+  .strip-panel {
+    width: 100% !important;
+    max-width: 680px !important;
+    margin: 0 auto !important;
+  }
+
+  .studio-topbar {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+  }
+
+  .camera-box {
+    width: 100% !important;
+    max-height: 60vh !important;
+  }
+
+  .strip-canvas-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .gallery-dialog {
+    width: 92vw !important;
+    max-width: 720px !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+}
+
+/* ==========================================================================
+   2. MOBILE PHONES (<= 640px)
+   ========================================================================== */
+@media (max-width: 640px) {
+  /* --- NAVBAR FIX (.header, .logo, .header-nav, .header-nav-ul) --- */
+  .header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0.9rem 1rem !important;
+    gap: 0.65rem !important;
+    text-align: center !important;
+  }
+
+  .logo {
+    font-size: 1.45rem !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+  }
+
+  .header-nav {
+    width: 100% !important;
+  }
+
+  .header-nav-ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem 0.9rem !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  .header-nav-ul li a {
+    font-size: 0.95rem !important;
+    padding: 0.25rem 0.35rem !important;
+  }
+
+  .user-badge {
+    font-size: 0.85rem !important;
+  }
+
+  .nav-btn {
+    padding: 0.45rem 0.8rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* --- HOME PAGE --- */
+  .photobooth-main {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .photobooth-section h1 {
+    font-size: 1.65rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .photobooth-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    padding: 0 0.25rem !important;
+  }
+
+  /* --- ABOUT PAGE --- */
+  .about-main {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .about-section h1 {
+    font-size: 1.65rem !important;
+  }
+
+  .about-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .about-card {
+    width: 100% !important;
+    padding: 1.25rem !important;
+  }
+
+  /* --- LOGIN & REGISTER CARDS (.auth-main, .auth-card, .auth-form) --- */
+  .auth-main {
+    padding: 1.25rem 0.75rem !important;
+    width: 100% !important;
+  }
+
+  .auth-card {
+    width: 94% !important;
+    max-width: 390px !important;
+    margin: 0.75rem auto !important;
+    padding: 1.5rem 1.15rem !important;
+  }
+
+  .auth-card h1 {
+    font-size: 1.55rem !important;
+  }
+
+  .auth-subtitle {
+    font-size: 0.9rem !important;
+  }
+
+  .form-group input {
+    width: 100% !important;
+    font-size: 1rem !important; /* Prevents iOS Safari auto-zoom */
+    padding: 0.75rem 0.9rem !important;
+  }
+
+  .cta-btn,
+  .secondary-btn,
+  .auth-submit {
+    width: 100% !important;
+    min-height: 46px !important;
+    font-size: 1rem !important;
+    text-align: center !important;
+  }
+
+  /* --- STUDIO BOOTH PAGE (.booth-main, .tool-dock, .glow-grid-layout) --- */
+  .booth-main {
+    padding: 1rem 0.75rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .studio-topbar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.65rem !important;
+  }
+
+  .timer-group,
+  .ratio-group {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    gap: 0.4rem !important;
+  }
+
+  .upload-label {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .tool-tabs {
+    display: flex !important;
+    width: 100% !important;
+  }
+
+  .tool-tab {
+    flex: 1 !important;
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .grid-options {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+
+  .grid-btn {
+    width: 100% !important;
+    font-size: 0.85rem !important;
+    padding: 0.6rem 0.4rem !important;
+  }
+
+  .booth-controls .control-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.35rem !important;
+  }
+
+  .booth-controls select,
+  .booth-controls input[type="text"] {
+    width: 100% !important;
+    font-size: 1rem !important;
+  }
+
+  /* Glow Panel Mobile Stacking */
+  .glow-grid-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+  }
+
+  .glow-divider {
+    width: 100% !important;
+    height: 1px !important;
+    border: none !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.12) !important;
+    margin: 0.25rem 0 !important;
+  }
+
+  .glow-presets-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.6rem !important;
+    justify-items: center !important;
+  }
+
+  /* Capture & Strip Action Menus */
+  .studio-actions,
+  .strip-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.65rem !important;
+    padding: 0 !important;
+  }
+
+  .studio-actions li,
+  .strip-actions li {
+    width: 100% !important;
+  }
+
+  #photo-strip-canvas {
+    width: 100% !important;
+    max-width: 280px !important;
+    height: auto !important;
+  }
+
+  /* Gallery Modal Mobile */
+  .gallery-dialog {
+    width: 95vw !important;
+    padding: 1rem !important;
+  }
+
+  .gallery-header {
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+    text-align: center !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

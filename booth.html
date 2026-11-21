@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>">
+  <title>Studio - Photo Booth</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/booth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body id="studio-body">
+
+  <header class="header">
+    <a href="index.html" class="logo">Photo Booth</a>
+    <nav class="header-nav" aria-label="Studio Navigation">
+      <ul class="header-nav-ul">
+        <li><output id="user-greeting" class="user-badge">Hi, Guest!</output></li>
+        <li><button type="button" id="toggle-gallery-btn" class="nav-btn">My Gallery</button></li>
+        <li><button type="button" id="logout-btn" class="nav-btn nav-btn-outline">Logout</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="booth-main">
+    <section class="booth-studio" aria-labelledby="studio-heading">
+      <h1 id="studio-heading" class="sr-only">Camera Studio</h1>
+
+      <!-- Top Bar: Timer | Camera Ratio | Upload -->
+      <header class="studio-topbar">
+        <fieldset class="timer-group" aria-label="Countdown Timer">
+          <legend class="sr-only">Countdown Timer</legend>
+          <button type="button" class="timer-pill active" data-sec="3">3s</button>
+          <button type="button" class="timer-pill" data-sec="5">5s</button>
+          <button type="button" class="timer-pill" data-sec="10">10s</button>
+        </fieldset>
+
+        <fieldset class="ratio-group" aria-label="Camera Ratio">
+          <legend class="sr-only">Camera Aspect Ratio</legend>
+          <button type="button" class="ratio-pill active" data-ratio="4/3">4:3</button>
+          <button type="button" class="ratio-pill" data-ratio="16/9">16:9</button>
+          <button type="button" class="ratio-pill" data-ratio="1/1">1:1</button>
+          <button type="button" class="ratio-pill" data-ratio="3/4">3:4</button>
+        </fieldset>
+
+        <label for="upload-photo-input" class="secondary-btn upload-label">Upload Photos</label>
+        <input type="file" id="upload-photo-input" accept="image/*" multiple hidden>
+      </header>
+
+      <!-- Camera Viewport -->
+      <figure id="camera-box" class="camera-box" style="aspect-ratio: 4 / 3;">
+        <video id="webcam" autoplay playsinline></video>
+        <img id="filter-overlay-preview" class="filter-overlay" alt="" hidden>
+        <output id="countdown-display" class="countdown-overlay" hidden>3</output>
+        <figcaption id="shot-status" class="shot-badge">Ready (0 / 3 Shots)</figcaption>
+      </figure>
+
+      <!-- Feature Dock: Grid | Effects | Glow -->
+      <section class="tool-dock" aria-label="Studio Tools">
+        <nav class="tool-tabs" role="tablist" aria-label="Tool Categories">
+          <button type="button" role="tab" aria-selected="true" aria-controls="panel-grid" class="tool-tab active" data-panel="panel-grid">Grid</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="panel-effects" class="tool-tab" data-panel="panel-effects">Effects</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="panel-glow" class="tool-tab" data-panel="panel-glow">Glow</button>
+        </nav>
+
+        <!-- Panel 1: Grid Layouts -->
+        <section id="panel-grid" class="tool-panel" role="tabpanel" aria-label="Grid Layouts">
+          <fieldset class="grid-options">
+            <legend class="sr-only">Choose Photo Strip Grid</legend>
+            <button type="button" class="grid-btn" data-layout="2-strip">2 Photos (Strip)</button>
+            <button type="button" class="grid-btn active" data-layout="3-strip">3 Photos (Strip)</button>
+            <button type="button" class="grid-btn" data-layout="4-strip">4 Photos (Strip)</button>
+            <button type="button" class="grid-btn" data-layout="4-grid">4 Photos (2x2 Grid)</button>
+          </fieldset>
+        </section>
+
+        <!-- Panel 2: Effects, Theme & Caption -->
+        <section id="panel-effects" class="tool-panel" role="tabpanel" aria-label="Effects and Theme" hidden>
+          <fieldset class="booth-controls">
+            <legend class="sr-only">Strip Customization</legend>
+
+            <p class="control-group">
+              <label for="camera-filter">Filter:</label>
+              <select id="camera-filter"></select>
+            </p>
+
+            <p class="control-group">
+              <label for="strip-theme">Theme:</label>
+              <select id="strip-theme">
+                <option value="#FFFFFF">Classic White</option>
+                <option value="#0F172A">Deep Navy</option>
+                <option value="#00C4D6">Bright Cyan</option>
+                <option value="#FFE4E6">Soft Pink</option>
+              </select>
+            </p>
+
+            <p class="control-group">
+              <label for="strip-caption">Caption:</label>
+              <input type="text" id="strip-caption" maxlength="24" placeholder="e.g. Besties 2026!">
+            </p>
+          </fieldset>
+        </section>
+
+        <!-- Panel 3: Glow Screen Light -->
+        <section id="panel-glow" class="tool-panel" role="tabpanel" aria-labelledby="glow-panel-title" hidden>
+          <header class="glow-header">
+            <h3 id="glow-panel-title">Glow</h3>
+          </header>
+
+          <fieldset class="glow-grid-layout">
+            <legend class="sr-only">Screen Glow Color Selection</legend>
+
+            <!-- Left Controls: Off, Rainbow Color Picker, Active Color -->
+            <p class="glow-left-group">
+              <button type="button" class="swatch-btn glow-off-btn active" data-glow="none" title="Off" aria-label="Turn off glow">
+                &#128683;
+              </button>
+
+              <label class="swatch-btn rainbow-picker-btn" title="Custom Color" aria-label="Pick custom glow color">
+                <input type="color" id="custom-glow-picker" value="#FF0000">
+              </label>
+
+              <output id="active-glow-preview" class="swatch-btn active-color-ring" style="background: #F4FBFD;" aria-label="Current Glow Color"></output>
+            </p>
+
+            <hr class="glow-divider">
+
+            <!-- Right Controls: 2-Row Preset Swatches -->
+            <p class="glow-presets-grid">
+              <button type="button" class="swatch-btn" data-glow="#FF0000" style="background:#FF0000;" aria-label="Bright Red"></button>
+              <button type="button" class="swatch-btn" data-glow="#8B5CF6" style="background:#8B5CF6;" aria-label="Electric Purple"></button>
+              <button type="button" class="swatch-btn" data-glow="#FFFFFF" style="background:#FFFFFF;" aria-label="Pure White"></button>
+              <button type="button" class="swatch-btn" data-glow="#00C4D6" style="background:#00C4D6;" aria-label="Bright Cyan"></button>
+              <button type="button" class="swatch-btn" data-glow="#F97316" style="background:#F97316;" aria-label="Warm Sunset"></button>
+              <button type="button" class="swatch-btn" data-glow="#3B82F6" style="background:#3B82F6;" aria-label="Cool Blue"></button>
+              <button type="button" class="swatch-btn" data-glow="#FFE4E6" style="background:#FFE4E6;" aria-label="Soft Pink"></button>
+              <button type="button" class="swatch-btn" data-glow="#FEF08A" style="background:#FEF08A;" aria-label="Warm Ring"></button>
+            </p>
+          </fieldset>
+
+          <label class="glow-slider-row" for="glow-intensity">
+            <span class="sr-only">Glow Intensity</span>
+            <input type="range" id="glow-intensity" min="15" max="100" value="100">
+            <output id="glow-percent" for="glow-intensity">100%</output>
+          </label>
+        </section>
+      </section>
+
+      <!-- Capture & Retake Buttons -->
+      <menu class="studio-actions">
+        <li><button type="button" id="start-capture-btn" class="cta-btn">Start Capture</button></li>
+        <li><button type="button" id="retake-btn" class="secondary-btn" disabled>Retake</button></li>
+      </menu>
+    </section>
+
+    <!-- Right Preview Panel -->
+    <aside class="strip-panel" aria-labelledby="strip-heading">
+      <h2 id="strip-heading">Your Photo Strip</h2>
+
+      <figure class="strip-canvas-wrapper">
+        <canvas id="photo-strip-canvas" width="320" height="760"></canvas>
+      </figure>
+
+      <menu class="strip-actions">
+        <li><button type="button" id="save-cloud-btn" class="cta-btn" disabled>Save to Cloud</button></li>
+        <li><button type="button" id="download-btn" class="secondary-btn" disabled>Download</button></li>
+      </menu>
+    </aside>
+  </main>
+
+  <!-- Cloud Gallery Modal -->
+  <dialog id="gallery-modal" class="gallery-dialog" aria-labelledby="gallery-title">
+    <header class="gallery-header">
+      <h2 id="gallery-title">My Cloud Gallery</h2>
+      <button type="button" id="close-gallery-btn" class="secondary-btn">Close</button>
+    </header>
+    <section id="gallery-grid" class="gallery-grid" aria-live="polite">
+      <p class="empty-gallery-msg">No saved photo strips yet. Take shots and click "Save to Cloud"!</p>
+    </section>
+  </dialog>
+
+  <script type="module" src="javascript/booth.js?v=2"></script>
+</body>
+</html>
